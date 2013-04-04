@@ -1,4 +1,4 @@
-# [cutup](https://github.com/vyhoang/cutupjs) [![Build Status](https://secure.travis-ci.org/vyhoang/cutup.png?branch=master)](http://travis-ci.org/vyhoang/cutupjs)
+# [cutup](https://github.com/vytch/cutupjs) [![Build Status](https://secure.travis-ci.org/vytch/cutup.png?branch=master)](http://travis-ci.org/vytch/cutupjs)
 
 # cutup
 
@@ -19,11 +19,11 @@ You can increase / decrease the opacity of your targeted element if you need to 
 
 ## Website URL
 
-https://github.com/vyhoang/cutupjs
+https://github.com/vytch/cutupjs
 
 ## Bug tracker
 
-If you find a bug, please raise it the [issue here](https://github.com/vyhoang/cutupjs/issues) on Github! 
+If you find a bug, please raise it the [issue here](https://github.com/vytch/cutupjs/issues) on Github! 
 
 ## Documentation
 
@@ -38,10 +38,10 @@ cutup.js comes a couple of handy shortcuts:
 - This plugin is more design for cutup pages.
 - It only works on element present on the page on page load.
 
-[git://github.com/vyhoang/cutupjs.git](git://github.com/vyhoang/cutupjs.git)
+[git://github.com/vytch/cutupjs.git](git://github.com/vytch/cutupjs.git)
 
 ## Developer
 
-Developed by vhoang, []()
+Developed by vytch, []()
 
-+ [Github Profile](http://github.com/vyhoang)
++ [Github Profile](http://github.com/vytch)
