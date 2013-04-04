@@ -27,6 +27,17 @@ If you find a bug, please raise it the [issue here](https://github.com/vytch/cut
 
 ## Documentation
 
+### Installation
+
+Include: 
+
+- css/cutupjs.css 
+- js/cutup.js
+
+into your cutup page so you can start using it.
+
+### Shortcuts
+ 
 cutup.js comes a couple of handy shortcuts:
 
 - (cmd + click) on the element: set the element to active mode. Display the image as a guideline.

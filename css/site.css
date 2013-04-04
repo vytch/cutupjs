@@ -22,22 +22,3 @@ h1 strong {
   margin:  0 auto;
 }
 
-.cutupjs-wrapper{
-  position:relative;
-}
-.cutupjs-wrapper .cutupjs-working-element{
-  position:relative;
-  z-index:2;
-}
-.cutupjs-wrapper .cutupjs-guideline{
-  position:absolute;
-  z-index:1;
-  display:none;
-}
-.cutupjs-active .cutupjs-guideline{
-  display:block;
-}
-.cutup-spotme{
-  background-color:#FFF5E0;
-  cursor:pointer;
-}
