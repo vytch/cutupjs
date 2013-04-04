@@ -1,0 +1,28 @@
+{
+  "name": "cutupjs",
+  "title": "Cutup.js",
+  "description": "The best jQuery plugin ever.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/vyhoang/cutupjs",
+  "author": {
+    "name": "vhoang",
+    "email": "vhoang@deloitte.com.au"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/vyhoang/cutupjs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vyhoang/cutupjs/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/vyhoang/cutupjs/blob/master/LICENSE-MIT"
+    }
+  ],
+  "dependencies": {
+    "jquery": ">= 1"
+  },
+  "keywords": []
+}
