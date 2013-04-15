@@ -59,6 +59,7 @@
   </div>
 
   <script src="js/libs/jquery.js"></script>
+  <script src="js/libs/enquire.js"></script>
   <script src="js/cutup.js"></script>
   <script>
   $( function() {
@@ -66,7 +67,13 @@
       width:240,
       height:200
     } );
-    $( '#main2' ).cutup( 'cutup/cutup2.png' , {
+    $( '#main2' ).cutup( {
+      "default":'cutup/cutup.png',
+      "screen and (min-width: 507px) and (max-width: 767px)":'cutup/cutup.png',
+      "screen and (min-width: 768px) and (max-width: 850px)":'cutup/cutup2.png',
+      
+      
+    } , {
 
     } );
   } );

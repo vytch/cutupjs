@@ -26,21 +26,30 @@ $('selector').cutup('image_url', {
 
   // Collection method.
   $.fn.cutup = function(image, o) {
-    if(typeof image != 'string'){
-      throw new Error('You need to provide a screenshot image. Check the doucmentation for more info.');
+    var img;
+    if(typeof image == 'string' || typeof image == 'object'){
+     img = image;
+    }
+    else if(typeof image == 'undefined') {
+      
+       throw new Error('You need to provide a screenshot image. Check the doucmentation for more info.');
     }
     return this.each(function(i,n) {
-      new $.cutup(image, n, o);
+      new $.cutup(img, n, o);
     });
   };
 
   // Static method.
   $.cutup = function(image, el, options) {
+    
+   
     var _self = this,
         $el = $(el),
         is_activated = false,
         is_cmd = false,
+        is_responsive = false,
         working_opacity = 1,
+        refImg,
         w = 0,
         h = 0;
     var _default = {
@@ -53,10 +62,7 @@ $('selector').cutup('image_url', {
     $wrapper.prepend('<div class="cutupjs-guideline"></div>');
     
     var $guideline = $wrapper.find('.cutupjs-guideline');
-    $guideline.css({
-      'background-image':'url('+image+')',
-      'background-repeat':'no-repeat'
-    });
+    
     
     // Method
     // ======
@@ -77,18 +83,60 @@ $('selector').cutup('image_url', {
     } 
     var getCutupDimensions = function(callback){
       var img = new Image();
+      console.log(refImg);
       img.onload = function() {
         w = this.width;
         h = this.height;
-        callback();
+        if(typeof callback == 'function'){
+          callback();
+        }
+        
       }
-      img.src = image;
+      img.src = refImg;
     }
-    
+    var register_enquire = function(query , img, defaultImg){
+      enquire.register(query, {
+        refImage:img,
+        unmatch : function(e) {
+           $guideline.css({
+            'background-image':'url('+defaultImg+')',
+            'background-repeat':'no-repeat'
+          });
+        },
+        match : function(e) {
+          console.log(query);
+          $guideline.css({
+            'background-image':'url('+this.refImage+')',
+            'background-repeat':'no-repeat'
+          });
+        }
+      })
+    }
     // STARTUP
     // =======
     
     this.settings = $.extend( _default , options );
+    
+    if(typeof image == 'object'   ){
+      if(typeof enquire == 'undefined'){
+        throw new Error('Please add enquire.js if you want to use media queries.');
+        return;
+      }  else{
+        refImg = image["default"];
+        for (var query in image) {
+          if (image.hasOwnProperty(query) && query != 'default') { 
+            register_enquire(query, image[query], image["default"]);
+          }
+          enquire.listen(200);
+        }
+      }
+    } else{
+      refImg = image;
+    }
+    $guideline.css({
+      'background-image':'url('+refImg+')',
+      'background-repeat':'no-repeat'
+    });
     
     if( typeof options != 'undefined' && 
         ( typeof options.width != 'undefined' || 
@@ -170,5 +218,8 @@ $('selector').cutup('image_url', {
   $(document).keyup(function(){
     $('.cutupjs-wrapper').removeClass('cutup-spotme');
   });
+  $(window).on('resize', function(){
+    console.log($(this).width());
+  })
 }(jQuery));
 

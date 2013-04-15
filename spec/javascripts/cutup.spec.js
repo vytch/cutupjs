@@ -39,4 +39,24 @@ describe('cutup Jquery plugin tests', function(){
     expect($('.cutupjs-wrapper').hasClass('cutupjs-active')).toBeFalsy();
     
   });
+
+});
+describe('cutup Jquery responsive', function(){
+  var $el;
+  beforeEach(function(){
+    loadFixtures('fragment.html');
+    $el = $('#fixtures');
+  });
+  it('Should accept a object as an argument only if enquire has been added to the project', function(){
+    expect(function(){
+      $el.cutup({
+        'test':'img'
+      }, {
+        width:100,
+        height:200
+      });
+    }).toThrow();
+    
+    
+  })
 });
