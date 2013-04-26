@@ -61,11 +61,17 @@ $('selector').cutup('image_url', {
     var $wrapper = $el.closest('.cutupjs-wrapper');
     $wrapper.prepend('<div class="cutupjs-guideline"></div>');
     
+    var actionPanel = $('<ul class="cutup-action-panel">');
+    actionPanel.append('<li class="cutup-activate"><span class="cu-on">On</span><span class="cu-off">Off</span></li>');
+    $wrapper.prepend(actionPanel);
+    
     var $guideline = $wrapper.find('.cutupjs-guideline');
     
     
     // Method
     // ======
+    
+    
     
     var activateElement = function(){
       if(!is_activated){
@@ -81,9 +87,9 @@ $('selector').cutup('image_url', {
         });
       }
     } 
+    
     var getCutupDimensions = function(callback){
       var img = new Image();
-      console.log(refImg);
       img.onload = function() {
         w = this.width;
         h = this.height;
@@ -95,8 +101,8 @@ $('selector').cutup('image_url', {
       img.src = refImg;
     }
     var register_enquire = function(query , img, defaultImg){
+      refImg = img;
       enquire.register(query, {
-        refImage:img,
         unmatch : function(e) {
            $guideline.css({
             'background-image':'url('+defaultImg+')',
@@ -104,9 +110,9 @@ $('selector').cutup('image_url', {
           });
         },
         match : function(e) {
-          console.log(query);
+
           $guideline.css({
-            'background-image':'url('+this.refImage+')',
+            'background-image':'url('+refImg+')',
             'background-repeat':'no-repeat'
           });
         }
@@ -133,6 +139,7 @@ $('selector').cutup('image_url', {
     } else{
       refImg = image;
     }
+    
     $guideline.css({
       'background-image':'url('+refImg+')',
       'background-repeat':'no-repeat'
@@ -161,6 +168,12 @@ $('selector').cutup('image_url', {
     // Event 
     // =====
     
+    $wrapper.find('.cutup-activate').on('click', function(){
+      console.log('triggered');
+      console.log($(this).closest('.cutupjs-wrapper'));
+      $(this).closest('.cutupjs-wrapper').trigger('cutup:activate');
+    });
+    
     // Change of opacity triggered
     $el.bind('cutup:opacity-shift', function(e, direction){
       
@@ -183,11 +196,11 @@ $('selector').cutup('image_url', {
       activateElement();
     });
     
-    $wrapper.bind('click', function(e){
-      if(e.ctrlKey || e.metaKey){
-        activateElement();
-      }
-    });
+    // $wrapper.bind('click', function(e){
+    //   if(e.ctrlKey || e.metaKey){
+    //     activateElement();
+    //   }
+    // });
     
     
   };
@@ -198,7 +211,7 @@ $('selector').cutup('image_url', {
   };
   
   $(document).keydown(function (e){
-    if (e.ctrlKey || e.metaKey){
+    if (e.keyCode === 16){
        $('.cutupjs-wrapper').addClass('cutup-spotme');
     } 
   });

@@ -38,20 +38,43 @@
     </div>
     <div id="main2">
       <div class="my-component">
-        <ul>
-          <li>test1</li>
-          <li>test1</li>
-          <li>test1</li>
-          <li>test1</li>
-          <li>test1</li>
-          <li>test1</li>
-          <li>test1</li>
-          <li>test1</li>
-          <li>test1</li>
-          <li>test1</li>
-          <li>test1</li>
-          <li>test1</li>
-        </ul>
+        <div class="group">
+          <div class="one-to-five bp-two">
+              <a href="#" class="icon-block" style="height: 160px; ">
+                  <span class="icon icon--strategy"><span></span></span>
+                  <h2 class="h6">Strategy</h2>
+                  <p>Our teams collaborate with you to bring your digital strategy to life.</p>
+              </a> 
+          </div>    
+          <div class="one-to-five bp-two">
+              <a href="#" class="icon-block" style="height: 160px; ">
+                  <span class="icon icon--mobile"><span></span></span> 
+                  <h2 class="h6">Mobile</h2>
+                  <p>Smart, bold, intuitive: our portfolio speaks for itself.</p>
+              </a>
+          </div>
+          <div class="one-to-five bp-two">
+              <a href="#" class="icon-block" style="height: 160px; ">
+                  <span class="icon icon--social"><span></span></span>
+                  <h2 class="h6">Social</h2>
+                  <p>Let's put social to work for your organisation.</p>
+              </a> 
+          </div> 
+          <div class="one-to-five bp-two">
+              <a href="#" class="icon-block" style="height: 160px; ">
+                  <span class="icon icon--web"><span></span></span>
+                  <h2 class="h6">Web</h2>
+                  <p>From strategy to implementation, we help build a powerful online presence.</p>
+              </a> 
+          </div>
+          <div class="one-to-five bp-two">
+              <a href="#" class="icon-block" style="height: 160px; "> 
+                  <span class="icon icon--cm"><span></span></span>
+                  <h2 class="h6">Content management</h2>
+                  <p>We can help you develop the content skills to thrive in the digital age.</p>
+              </a> 
+          </div>
+        </div>
       </div>
     </div>
     <footer>
@@ -60,6 +83,8 @@
 
   <script src="js/libs/jquery.js"></script>
   <script src="js/libs/enquire.js"></script>
+  <!-- <script src="js/libs/json2.js"></script> -->
+  <script src="js/libs/stringCompressor.js"></script>
   <script src="js/cutup.js"></script>
   <script>
   $( function() {
@@ -68,14 +93,77 @@
       height:200
     } );
     $( '#main2' ).cutup( {
-      "default":'cutup/cutup.png',
-      "screen and (min-width: 507px) and (max-width: 767px)":'cutup/cutup.png',
-      "screen and (min-width: 768px) and (max-width: 850px)":'cutup/cutup2.png',
-      
-      
+      "default":'cutup/dd1.png',
+      "screen and (max-width: 930px)":'cutup/dd1.png',
+      "screen and (min-width: 931px) ":'cutup/dd2.png',
     } , {
 
     } );
+  //   var obj = {
+  //     'test1':{
+  //       is_active:false,
+  //       opacity:'0.1'
+  //     },
+  //     'test2':{
+  //       is_active:true,
+  //       opacity:'0.5'
+  //     },
+  //     'test3':{
+  //       is_active:true,
+  //       opacity:'0.5'
+  //     },
+  //     'test4':{
+  //       is_active:true,
+  //       opacity:'0.5'
+  //     },
+  //     'test5':{
+  //       is_active:true,
+  //       opacity:'0.5'
+  //     },
+  //     'test6':{
+  //       is_active:true,
+  //       opacity:'0.5'
+  //     },
+  //     'test7':{
+  //       is_active:true,
+  //       opacity:'0.5'
+  //     },
+  //     'test8':{
+  //       is_active:true,
+  //       opacity:'0.5'
+  //     },
+  //     'test9':{
+  //       is_active:true,
+  //       opacity:'0.5'
+  //     },
+  //     'test10':{
+  //       is_active:true,
+  //       opacity:'0.5'
+  //     },
+  //     'test11':{
+  //       is_active:true,
+  //       opacity:'0.5'
+  //     },
+  //     'test12':{
+  //       is_active:true,
+  //       opacity:'0.5'
+  //     },
+  //     'test13':{
+  //       is_active:true,
+  //       opacity:'0.5'
+  //     },
+  //     'test14':{
+  //       is_active:true,
+  //       opacity:'0.5'
+  //     },
+  //     'test15':{
+  //       is_active:true,
+  //       opacity:'0.5'
+  //     }
+  //   }
+  //   var txt = JSON.stringify(obj);
+  //   var compressed = StrCompressor.compress(txt);
+  //   var decompressed = StrCompressor.decompress(compressed);
   } );
   </script>
 

@@ -17,3 +17,30 @@
   background-color:#FFF5E0;
   cursor:pointer;
 }
+.cutup-action-panel{
+	display:none;
+	position:absolute;
+	top:0;
+	right:0;
+	background:#fff;
+	border:1px solid #333;
+	z-index:1000;
+	list-style: none;
+	padding:5px;
+	margin:0;
+}
+.cutup-spotme .cutup-action-panel{
+	display:block;
+}
+.cu-on{
+	display:inline;
+}
+.cu-off{
+	display:none;
+}
+.cutupjs-active .cu-on{
+	display:none;
+}
+.cutupjs-active .cu-off{
+	display:inline;
+}
