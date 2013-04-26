@@ -232,7 +232,7 @@ $('selector').cutup('image_url', {
     $('.cutupjs-wrapper').removeClass('cutup-spotme');
   });
   $(window).on('resize', function(){
-    console.log($(this).width());
+    // console.log($(this).width());
   })
 }(jQuery));
 
