@@ -29,7 +29,14 @@ describe('cutup Jquery plugin tests', function(){
     expect($('.cutupjs-wrapper').width()).toBe(100);
     expect($('.cutupjs-wrapper').height()).toBe(200);
   });
-  
+  it('should allow a is_active as a property', function(){
+    $el.cutup('test.png', {
+      is_active:true,
+      width:100,
+      height:200
+    });
+    expect($('.cutupjs-wrapper').hasClass('cutupjs-active')).toBeTruthy();
+  });
   it('should create a navigation panel', function(){
     $el.cutup('test.png', {
       width:100,

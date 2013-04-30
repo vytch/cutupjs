@@ -53,6 +53,8 @@ $('selector').cutup('image_url', {
         w = 0,
         h = 0;
     var _default = {
+      opacity:1,
+      is_active:false
     };
     
     
@@ -81,7 +83,7 @@ $('selector').cutup('image_url', {
         is_activated = false;
         $wrapper.removeClass('cutupjs-active');
         
-        working_opacity = 1;
+        working_opacity = _self.settings.opacity;
         $el.css({
           opacity:working_opacity
         });
@@ -120,8 +122,9 @@ $('selector').cutup('image_url', {
     }
     // STARTUP
     // =======
-    
     this.settings = $.extend( _default , options );
+    working_opacity = this.settings.opacity;
+    is_activated = this.settings.is_active;
     
     if(typeof image == 'object'   ){
       if(typeof enquire == 'undefined'){
@@ -159,12 +162,17 @@ $('selector').cutup('image_url', {
         $guideline.width(w);
         $guideline.height(h);
       });
-      
     } else {
       $guideline.width($wrapper.width());
       $guideline.height($wrapper.height());
     }
-    
+    // Set to activated mode if activated via the parameters.
+    if(is_activated){
+      $wrapper.addClass('cutupjs-active');
+    }
+    $el.css({
+      opacity:working_opacity
+    });
     // Event 
     // =====
     
